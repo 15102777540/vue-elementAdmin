@@ -8,8 +8,8 @@
           </template>
           <el-menu-item-group>
             <!-- <template slot="title">信息审核</template> -->
-            <el-menu-item index="1-1" v-on:click="getRouter(2)">信息审核</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <el-menu-item index="1-1" v-on:click="getRouter(1)">信息审核</el-menu-item>
+            <el-menu-item index="1-2" v-on:click="getRouter(2)">信息列表</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
             <el-menu-item index="1-3">选项3</el-menu-item>
@@ -70,7 +70,7 @@
       </el-header>
 
       <el-main>
-        <PetList></PetList>
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>
@@ -101,7 +101,8 @@ export default {
   },
   methods: {
     getRouter: function(flag) {
-      this.flag = flag;
+      if (flag == 1) this.$router.push({ path: "/PetList" });
+      if (flag == 2) this.$router.push({ path: "/PetListTo" });
     }
   }
 };

@@ -6,6 +6,8 @@
   </el-table>
 </template>
 <script>
+import axios from "@/libs/api.request";
+import { GetPetList } from "@/api/List";
 export default {
   name: "PetList",
   data() {
@@ -17,6 +19,15 @@ export default {
     return {
       tableData: Array(20).fill(item)
     };
+  },
+  created() {
+    GetPetList({ pageIndex: 1, pageSize: 10,Nickname:'',PetTypeOrHotNew:0 })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
