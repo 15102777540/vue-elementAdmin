@@ -70,7 +70,7 @@
       </el-header>
 
       <el-main>
-        <PetListTo></PetListTo>
+        <PetList></PetList>
       </el-main>
     </el-container>
   </el-container>
